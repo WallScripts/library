@@ -23,8 +23,8 @@ local OrionLib = {
 			TextDark = Color3.fromRGB(150, 150, 150)
 		},
 		WallHub = {
-			Main = Color3.fromRGB(15, 15, 15),
-			Second = Color3.fromRGB(10, 10, 10),
+			Main = Color3.fromRGB(0, 0, 0),
+			Second = Color3.fromRGB(0, 0, 0),
 			Stroke = Color3.fromRGB(184,134,11),
 			Divider = Color3.fromRGB(184, 134, 11),
 			Text = Color3.fromRGB(240, 240, 240),
@@ -402,7 +402,7 @@ function OrionLib:MakeNotification(NotificationConfig)
 			BackgroundTransparency = 0,
 			AutomaticSize = Enum.AutomaticSize.Y
 		}), {
-			MakeElement("Stroke", Color3.fromRGB(93, 93, 93), 1.2),
+			MakeElement("Stroke", Color3.fromRGB(184,134,11), 1.2),
 			MakeElement("Padding", 12, 12, 12, 12),
 			SetProps(MakeElement("Image", NotificationConfig.Image), {
 				Size = UDim2.new(0, 20, 0, 20),
