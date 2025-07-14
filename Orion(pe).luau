@@ -1,5 +1,6 @@
 local player = game.Players.LocalPlayer
-local Username = player.DisplayName or "Unknown"
+local DisplayName = player.DisplayName or "Unknown" 
+local Username = player.Name 
 ---
 local UserInputService = game:GetService("UserInputService")
 local TweenService = game:GetService("TweenService")
@@ -513,7 +514,7 @@ function OrionLib:MakeWindow(WindowConfig)
 		Size = UDim2.new(1, 0, 0, 50)
 	})
 
-	local WindowStuff = AddThemeObject(SetChildren(SetProps(MakeElement("RoundFrame", Color3.fromRGB(255, 255, 255), 0, 10), {
+local WindowStuff = AddThemeObject(SetChildren(SetProps(MakeElement("RoundFrame", Color3.fromRGB(255, 255, 255), 0, 10), {
 		Size = UDim2.new(0, 150, 1, -50),
 		Position = UDim2.new(0, 0, 0, 50)
 	}), {
@@ -558,20 +559,19 @@ function OrionLib:MakeWindow(WindowConfig)
 				AddThemeObject(MakeElement("Stroke"), "Stroke"),
 				MakeElement("Corner", 1)
 			}),
-			AddThemeObject(SetProps(MakeElement("Label", Username, WindowConfig.HidePremium and 14 or 13), {
-				Size = UDim2.new(1, -60, 0, 13),
-				Position = WindowConfig.HidePremium and UDim2.new(0, 50, 0, 19) or UDim2.new(0, 50, 0, 12),
-				Font = Enum.Font.FredokaOne,
-				ClipsDescendants = true
-			}), "Text"),
-			AddThemeObject(SetProps(MakeElement("Label", "", 12), {
-				Size = UDim2.new(1, -60, 0, 12),
-				Position = UDim2.new(0, 50, 1, -25),
-				Visible = not WindowConfig.HidePremium
-			}), "TextDark")
-		}),
-	}), "Second")
+			AddThemeObject(SetProps(MakeElement("Label", DisplayName, WindowConfig.HidePremium and 14 or 13), {
+    Size = UDim2.new(1, -60, 0, 13),
+    Position = WindowConfig.HidePremium and UDim2.new(0, 50, 0, 19) or UDim2.new(0, 50, 0, 12),
+    Font = Enum.Font.FredokaOne,
+    ClipsDescendants = true
+}), "Text"),
 
+AddThemeObject(SetProps(MakeElement("Label", "@" .. Username, 12), {
+    Size = UDim2.new(1, -60, 0, 12),
+    Position = UDim2.new(0, 50, 1, -25),
+    Visible = not WindowConfig.HidePremium
+}), "TextDark")
+	
 	local WindowName = AddThemeObject(SetProps(MakeElement("Label", WindowConfig.Name, 14), {
 		Size = UDim2.new(1, -30, 2, 0),
 		Position = UDim2.new(0, 25, 0, -24),
